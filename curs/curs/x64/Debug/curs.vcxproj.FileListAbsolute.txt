@@ -1,0 +1,5 @@
+D:\kurs_2\OOP\curs\curs\x64\Debug\curs.exe
+D:\kurs_2\OOP\curs_test\curs\curs\x64\Debug\curs.exe
+D:\kurs_2\OOP\cursach\version 2\curs\curs\x64\Debug\curs.exe
+D:\kurs_2\OOP\cursach\version 3\curs\curs\x64\Debug\curs.exe
+D:\kurs_2\OOP\cursach\version 4\curs\curs\x64\Debug\curs.exe
