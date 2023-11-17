@@ -8,16 +8,13 @@
 
 using namespace std;
 
-class Data {
-
+class Data
+{
 public:
-	
-
 	vector<Task> TaskVec;
 	vector<Employee> EmployeeVec;
 	vector<Participation> ParticipationVec;
 
-	
 };
 
 

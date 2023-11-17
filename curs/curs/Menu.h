@@ -4,13 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include "Task.h"
-#include "Employee.h"
-#include "Participation.h"
-
-#include "Data.h"
-
-#include "MainFunctions.h"
+#include "Serv.h"
 
 
 using namespace std;
@@ -18,9 +12,7 @@ using namespace std;
 
 class Menu {
 private:
-	Data Temp;
-
-
+	Serv Serv;
 
 private:
 	string Text_MainMenu();
@@ -59,14 +51,15 @@ public:
 ///		FUNCTION_MENU
 ///
 private:
-	/// DELTE MENU
+	/// DELETE MENU
+	/*
 	int delMenu_Task();
 	
 	int delMenu_Employee();
 	
 	int delMenu_Participation();
-
-	 
+	*/
+	
 	// PRINT ELEMENT MENU
 	int printMenu_Task();
 	
@@ -75,12 +68,12 @@ private:
 	int printMenu_Participation();
 
 
-	///	EDIT MENU
-	int editMenu_Task();
-	
-	int editMenu_Employee();
-	
-	int editMenu_Participation();
+	/////	EDIT MENU
+	//int editMenu_Task();
+	//
+	//int editMenu_Employee();
+	//
+	//int editMenu_Participation();
 
 
 };
