@@ -1,0 +1,8 @@
+1
+Create Cursach
+Create cursach with pz
+30.12.2023
+2
+Create application to read files
+Application which will read file width different methods 
+1.1.2024

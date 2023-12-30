@@ -1,6 +1,1 @@
-﻿  MainFunctions.cpp
-  Menu.cpp
-  curs.cpp
-  Создание кода...
-D:\kurs_2\OOP\cursach\version 4\curs\curs\MainFunctions.cpp(140): warning C4715: del_Task: значение возвращается не при всех путях выполнения
-  curs.vcxproj -> D:\kurs_2\OOP\cursach\version 4\curs\x64\Debug\curs.exe
+﻿  curs.vcxproj -> D:\GitHub\My\Course\curs\x64\Debug\curs.exe

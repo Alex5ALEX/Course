@@ -1,15 +1,13 @@
 #include "Employee.h"
 
 
+Employee::Employee(): Employee::Employee(-1, "", "", "", "", "") {}
 
-Employee::Employee(): Employee::Employee("", "", "", "", "") {}
 
-Employee::Employee(string nameEmployee, string phoneNumber, string passportData, string department, string jobTitle)
+Employee::Employee(int id, string nameEmployee, string phoneNumber, string passportData, string department, string jobTitle)
 {
-	static int id = 0;
-	IDEmployee = id;
-	id++;
-
+	
+	this->IDEmployee = id;
 	this->nameEmployee = nameEmployee;
 	this->phoneNumber = phoneNumber;
 	this->passportData = passportData;
@@ -81,44 +79,3 @@ string	Employee::get_jobTitle()
 
 
 
-
-string Employee::print()
-{
-	string out;
-
-	out += format("{:-<30}\n", "") + "\n";
-	out += format("{:<12} | {:<10} \n", "ID", IDEmployee);
-	out += format("{:<12} | {:<10} \n", "Name", nameEmployee);
-	out += format("{:<12} | {:<10} \n", "Phone", phoneNumber);
-	out += format("{:<12} | {:<10} \n", "Passport", passportData);
-	out += format("{:<12} | {:<10} \n", "Department", department);
-	out += format("{:<12} | {:<10} \n", "Job Title", jobTitle);
-	out += format("{:-<30}\n", "") + "\n";
-
-	return out;
-}
-
-
-
-/*
-ostream& operator<<(ostream& out, Employee& a)
-{
-	out << a.print();
-	return out;
-}
-
-
-
-
-ostream& operator<<(ostream& out, vector <Employee> a)
-{
-	for (int i = 0; i < a.size(); i++)
-	{
-		out << format("{:-<30}\n", "");
-
-		cout << a[i];
-
-		out << format("{:-<30}\n", "");
-	}
-	return out;
-}*/

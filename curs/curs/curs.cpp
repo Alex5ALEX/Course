@@ -1,20 +1,31 @@
 #include <iostream>
-//#include <format>
-//#include <vector>
+#include "IOE.h"
 
-//#include "MainFunctions.h"
+
 #include "Menu.h"
 
-//#include "Task.h"
-//#include "Employee.h"
-//#include "Participation.h"
 
 using namespace std;
 
 
+///
+/// ÄÎÁÀÂÈÒÜ ÎÒ×ÅÒÛ Ñ ÇÀÂÈÑÈÌÎÑÒÜÞ (TASK >> PEOPLE WHO DO)(PEOPLE >> TASK WHICH DO)  ****
+/// 
+/// FINDE ÐÅÀËÈÇÎÂÀÒÜ ****
+///
+/// ÑÎÐÒÈÐÎÂÊÀ  ****
+///
+/// ÄÎÁÀÂÈÒÜ ÄÀÍÍÛÅ Â ÔÀÉËÛ
+///
+
+
+
 int main()
 {
+    system("chcp 1251>0");
+
     Menu menu;
+
     menu.mainLoop();
 
 

@@ -10,7 +10,7 @@ class Participation
 {
 
 
-public:
+private:
 	int IDTask;
 	int IDEmployee;
 	string assignmentStatus;
@@ -23,6 +23,7 @@ public:
 	Participation();
 	Participation(int, int, string, string);
 
+
 	void set_IDTask(int);
 	void set_IDEmployee(int);
 	void set_assignmentStatus(string);
@@ -33,15 +34,5 @@ public:
 	int get_IDEmployee();
 	string get_assignmentStatus();
 	string get_shortDescription();
-	
-	
-
-	
-	string print();
-
-	
-	//friend ostream& operator<<(ostream& out, Participation& a);
-
-	//friend ostream& operator<<(ostream& out, vector <Participation> a);
 };
 

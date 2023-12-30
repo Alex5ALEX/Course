@@ -19,14 +19,9 @@ private:
 	string jobTitle;
 
 
-
-
-
-
 public:
 	Employee();
-	Employee(string, string, string, string, string);
-
+	Employee(int, string, string, string, string, string);
 
 
 	
@@ -37,22 +32,12 @@ public:
 	void set_jobTitle(string);
 
 
+
 	int		get_IDEmployee();
 	string	get_nameEmployee();
 	string	get_phoneNumber();
 	string	get_passportData();
 	string	get_department();
 	string	get_jobTitle();
-	
-	
-
-
-	string print();
-
-	//friend ostream& operator<<(ostream& out, Employee &a);
-
-	//friend ostream& operator<<(ostream& out, vector <Employee> a);
-
-
 };
 
