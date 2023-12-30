@@ -4,7 +4,15 @@
 #include <iostream>
 #include <vector>
 
-#include "Serv.h"
+#include "Data.h"
+
+#include "Printer.h"
+#include "Filler.h"
+#include "Deleter.h"
+#include "Editer.h"
+#include "Finder.h"
+#include "Reporter.h"
+#include "Sorter.h"
 
 
 using namespace std;
@@ -12,69 +20,32 @@ using namespace std;
 
 class Menu {
 private:
-	Serv Serv;
+	Data data;
+
+private:
+	Printer printer;
+	Filler	filler;
+	Deleter deleter;
+	Editer editer;
+	Finder finder;
+	Reporter reporter;
+	Sorter sorter;
 
 private:
 	string Text_MainMenu();
 
-	string Text_FunctionMenu(string);
-
-	string Text_EditTaskMenu();
-
-	string Text_EditEmployeeMenu();
-	
-	string Text_EditParticipationMenu();
+	string Text_SubMenu(string);
 
 
-
-///
 ///		MAIN_MENU
-///
 public:
 	int mainLoop();
 
 
-
-///
 ///		SUB_MENU
-///
 public:
 	int subMenu_Task();
-
 	int subMenu_Employee();
-
 	int subMenu_Participation();
-
-
-
-///
-///		FUNCTION_MENU
-///
-private:
-	/// DELETE MENU
-	/*
-	int delMenu_Task();
-	
-	int delMenu_Employee();
-	
-	int delMenu_Participation();
-	*/
-	
-	// PRINT ELEMENT MENU
-	int printMenu_Task();
-	
-	int printMenu_Employee();
-	
-	int printMenu_Participation();
-
-
-	/////	EDIT MENU
-	//int editMenu_Task();
-	//
-	//int editMenu_Employee();
-	//
-	//int editMenu_Participation();
-
-
 };
 

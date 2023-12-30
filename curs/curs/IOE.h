@@ -1,13 +1,28 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <regex>
 
 using namespace std;
 
-char GetController();
+void print(string);
 
-string GetString();
+char input_char();
 
-int GetInt();
+string input_str();
 
-void PrintString(string);
+
+
+int input_id(int&);
+
+int handle_id(string,int&);
+
+
+
+bool input_date(string&);
+
+bool handle_date(string&,int&, int&, int&);
+
+bool input_phone(string&);
+
+

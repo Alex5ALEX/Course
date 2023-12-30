@@ -1,15 +1,13 @@
 #include "Employee.h"
 
 
-Employee::Employee(): Employee::Employee("", "", "", "", "") {}
+Employee::Employee(): Employee::Employee(-1, "", "", "", "", "") {}
 
 
-Employee::Employee(string nameEmployee, string phoneNumber, string passportData, string department, string jobTitle)
+Employee::Employee(int id, string nameEmployee, string phoneNumber, string passportData, string department, string jobTitle)
 {
-	static int id = 0;
-	IDEmployee = id;
-	id++;
-
+	
+	this->IDEmployee = id;
 	this->nameEmployee = nameEmployee;
 	this->phoneNumber = phoneNumber;
 	this->passportData = passportData;

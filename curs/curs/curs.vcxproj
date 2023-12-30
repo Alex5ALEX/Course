@@ -130,18 +130,32 @@
   <ItemGroup>
     <ClCompile Include="curs.cpp" />
     <ClCompile Include="Data.cpp" />
+    <ClCompile Include="Deleter.cpp" />
+    <ClCompile Include="Editer.cpp" />
     <ClCompile Include="Employee.cpp" />
-    <ClCompile Include="MainFunctions.cpp" />
+    <ClCompile Include="Filler.cpp" />
+    <ClCompile Include="Finder.cpp" />
+    <ClCompile Include="IOE.cpp" />
+    <ClCompile Include="Printer.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Participation.cpp" />
+    <ClCompile Include="Reporter.cpp" />
+    <ClCompile Include="Sorter.cpp" />
     <ClCompile Include="Task.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data.h" />
+    <ClInclude Include="Deleter.h" />
+    <ClInclude Include="Editer.h" />
     <ClInclude Include="Employee.h" />
-    <ClInclude Include="MainFunctions.h" />
+    <ClInclude Include="Filler.h" />
+    <ClInclude Include="Finder.h" />
+    <ClInclude Include="IOE.h" />
+    <ClInclude Include="Printer.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Participation.h" />
+    <ClInclude Include="Reporter.h" />
+    <ClInclude Include="Sorter.h" />
     <ClInclude Include="Task.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

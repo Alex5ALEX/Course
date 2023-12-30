@@ -21,7 +21,7 @@ private:
 
 public:
 	Employee();
-	Employee(string, string, string, string, string);
+	Employee(int, string, string, string, string, string);
 
 
 	

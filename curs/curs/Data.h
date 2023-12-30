@@ -11,9 +11,9 @@ using namespace std;
 class Data
 {
 public:
-	vector<Task> TaskVec;
-	vector<Employee> EmployeeVec;
-	vector<Participation> ParticipationVec;
+	vector<Task> temp_Task;
+	vector<Employee> temp_Employee;
+	vector<Participation> temp_Participation;
 
 };
 

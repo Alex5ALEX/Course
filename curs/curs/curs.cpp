@@ -1,40 +1,32 @@
 #include <iostream>
-//#include <format>
-//#include <vector>
+#include "IOE.h"
+
 
 #include "Menu.h"
-#include "Serv.h"
 
-//#include "Task.h"
-//#include "Employee.h"
-//#include "Participation.h"
 
 using namespace std;
 
 
+///
+/// ÄÎÁÀÂÈÒÜ ÎÒ×ÅÒÛ Ñ ÇÀÂÈÑÈÌÎÑÒÜÞ (TASK >> PEOPLE WHO DO)(PEOPLE >> TASK WHICH DO)  ****
+/// 
+/// FINDE ÐÅÀËÈÇÎÂÀÒÜ ****
+///
+/// ÑÎÐÒÈÐÎÂÊÀ  ****
+///
+/// ÄÎÁÀÂÈÒÜ ÄÀÍÍÛÅ Â ÔÀÉËÛ
+///
+
+
+
 int main()
 {
-
-    //Serv serv;
-    //serv.add_Task();
-    //serv.add_Task();
-    //serv.PrintList_Task();
-    //serv.Print_Task_ID(0);
-    
-    
-    
-    /*
-    serv.add_Employee();
-    serv.PrintList_Employee();
-
-    serv.add_Participation();
-    serv.PrintList_Participation();*/
+    system("chcp 1251>0");
 
     Menu menu;
+
     menu.mainLoop();
-    
-
-
 
 
     return 0;

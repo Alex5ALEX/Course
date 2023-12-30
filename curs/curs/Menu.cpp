@@ -3,18 +3,21 @@
 
 
 
-///
 ///		TEXT MENU
-///
 string Menu::Text_MainMenu() {
 	string out;
 
-	out += format("\n{:*<30}\n", "") + "\n";
+	out += format("\n{:*^30}\n", "MAIN-MENU") + "\n";
 
 	out += format("{:-^30}\n", "What do you want to do?") + "\n";
-	out += format("{:^5} - {:.20}\n", "T", "Edit Task") + "\n";
-	out += format("{:^5} - {:.20}\n", "E", "Edit Employee") + "\n";
-	out += format("{:^5} - {:.20}\n", "P", "Edit Participation") + "\n";
+	out += format("{:^5} - {:.20}\n", "1", "Edit Task") + "\n";
+	out += format("{:^5} - {:.20}\n", "2", "Edit Employee") + "\n";
+	out += format("{:^5} - {:.20}\n", "3", "Edit Participation") + "\n";
+
+	out += format("{:-<30}\n", "");
+
+	out += format("{:^5} - {:.20}\n", "4", "Report ") + "\n";
+	out += format("{:^5} - {:.20}\n", "5", "Save all") + "\n";
 	out += format("{:^5} - {:.20}\n", "Q", "Exit") + "\n";
 
 	out += format("{:*<30}\n", "");
@@ -23,75 +26,23 @@ string Menu::Text_MainMenu() {
 }
 
 
-string Menu::Text_FunctionMenu(string ClassName) {
+string Menu::Text_SubMenu(string ClassName) {
 	string out;
 
-	out += format("\n{:*<30}\n", "") + "\n";
+	out += format("\n{:*^30}\n", "SUB-MENU") + "\n";
 
 	out += format("{:-^30}\n", "What do you want to do?") + "\n";
-	out += format("{:^5} - {:25}\n", "C", "Create " + ClassName) + "\n";
-	out += format("{:^5} - {:25}\n", "D", "Delete " + ClassName) + "\n";
-	out += format("{:^5} - {:25}\n", "E", "Edit " + ClassName) + "\n";
-	out += format("{:^5} - {:25}\n", "P", "Print " + ClassName) + "\n";
-	out += format("{:^5} - {:25}\n", "L", "Print list of " + ClassName) + "\n";
-	out += format("{:^5} - {:.20}\n", "Q", "Exit") + "\n";
+	out += format("{:^5} - {:25}\n", "1", "Create " + ClassName) + "\n";
+	out += format("{:^5} - {:25}\n", "2", "Delete " + ClassName) + "\n";
+	out += format("{:^5} - {:25}\n", "3", "Edit " + ClassName) + "\n";
+	out += format("{:^5} - {:25}\n", "4", "Print " + ClassName) + "\n";
+	out += format("{:^5} - {:25}\n", "5", "Print list of " + ClassName) + "\n";
 
-	out += format("{:*<30}\n", "");
+	out += format("{:-<30}\n", "");
 
-	return out;
-}
-
-
-string Menu::Text_EditTaskMenu() {
-	string out;
-
-	out += format("\n{:*<30}\n", "") + "\n";
-
-	out += format("{:-^30}\n", "What do you want to edit?") + "\n";
-	out += format("{:^5} - {:.20}\n", "T", "Task") + "\n";
-	out += format("{:^5} - {:.20}\n", "D", "Description") + "\n";
-	out += format("{:^5} - {:.20}\n", "L", "Deadline") + "\n";
-	out += format("{:^5} - {:.20}\n", "S", "Set Element") + "\n";
-	out += format("{:^5} - {:.20}\n", "Q", "Exit") + "\n";
-
-	out += format("{:*<30}\n", "");
-
-	return out;
-}
-
-
-string Menu::Text_EditEmployeeMenu() {
-	string out;
-
-	out += format("\n{:*<30}\n", "") + "\n";
-
-	out += format("{:-^30}\n", "What do you want to edit?") + "\n";
-	out += format("{:^5} - {:.20}\n", "N", "Name") + "\n";
-	out += format("{:^5} - {:.20}\n", "P", "Phone") + "\n";
-	out += format("{:^5} - {:.20}\n", "A", "Passport") + "\n";
-	out += format("{:^5} - {:.20}\n", "D", "Department") + "\n";
-	out += format("{:^5} - {:.20}\n", "J", "Job Title") + "\n";
-	out += format("{:^5} - {:.20}\n", "S", "Set Element") + "\n";
-	out += format("{:^5} - {:.20}\n", "Q", "Exit") + "\n";
-
-	out += format("{:*<30}\n", "");
-
-	return out;
-}
-
-
-string Menu::Text_EditParticipationMenu() {
-	string out;
-
-	out += format("\n{:*<30}\n", "") + "\n";
-
-	out += format("{:-^30}\n", "What do you want to edit?") + "\n";
-	out += format("{:^5} - {:.20}\n", "T", "ID Task") + "\n";
-	out += format("{:^5} - {:.20}\n", "E", "ID Employee") + "\n";
-	out += format("{:^5} - {:.20}\n", "A", "Status") + "\n";
-	out += format("{:^5} - {:.20}\n", "D", "Description") + "\n";
-	out += format("{:^5} - {:.20}\n", "S", "Set Element") + "\n";
-	out += format("{:^5} - {:.20}\n", "Q", "Exit") + "\n";
+	out += format("{:^5} - {:25}\n", "6", "Sort " + ClassName) + "\n";
+	out += format("{:^5} - {:25}\n", "7", "Save " + ClassName) + "\n";
+	out += format("{:^5} - {:.20}\n", "Q", "Back") + "\n";
 
 	out += format("{:*<30}\n", "");
 
@@ -101,37 +52,51 @@ string Menu::Text_EditParticipationMenu() {
 
 
 
-///
+
+
+
 ///		MAIN MENU
-///
 int Menu::mainLoop() {
+	filler.read_file_Task(data.temp_Task);
+	filler.read_file_Employee(data.temp_Employee);
+	filler.read_file_Participation(data.temp_Participation);
+
+
+
 	bool LOOP = 1;
 
 	char controller = 'q';
 
 
 	while (LOOP) {
-		PrintString(Text_MainMenu());
+		print(Text_MainMenu());
 
-		controller = GetController();
+		controller = input_char();
 
 		system("cls");
 
 		switch (controller)
 		{
-		case 'T':
-		case 't':
+		case '1':
 			subMenu_Task();
 			break;
 
-		case 'E':
-		case 'e':
+		case '2':
 			subMenu_Employee();
 			break;
 
-		case 'P':
-		case 'p':
+		case '3':
 			subMenu_Participation();
+			break;
+
+		case '4':
+			reporter.report(data);
+			break;
+
+		case '5':
+			printer.print_file_Task(data.temp_Task);
+			printer.print_file_Employee(data.temp_Employee);
+			printer.print_file_Participation(data.temp_Participation);
 			break;
 
 		case 'Q':
@@ -144,18 +109,17 @@ int Menu::mainLoop() {
 			break;
 		}
 
-
 	}
-
 	return 0;
 }
 
 
 
 
-///
+
+
+
 ///		SUB MENU
-///
 int Menu::subMenu_Task()
 {
 	bool LOOP = 1;
@@ -164,42 +128,47 @@ int Menu::subMenu_Task()
 
 	while (LOOP)
 	{
-		PrintString(Text_FunctionMenu("Task"));
+		print(Text_SubMenu("Task"));
 
-		controller = GetController();
+		controller = input_char();
 
 		system("cls");
 
 		switch (controller)
 		{
 		//create
-		case 'C':
-		case 'c':
-			Serv.add_Task();
+		case '1':
+			filler.fill_Task(data.temp_Task);
 			break;
 
 		//Delete 
-		case 'D':
-		case 'd':
-			delMenu_Task();
+		case '2':
+			deleter.del_Task(data.temp_Task);
 			break;
 
 		//Edit
-		case 'E':
-		case 'e':
-			//editMenu_Task();
+		case '3':
+			editer.edit_Task(data.temp_Task);
 			break;
 
 		//Print
-		case 'P':
-		case 'p':
-			printMenu_Task();
+		case '4':
+			printer.print_select_Task(data.temp_Task);
 			break;
 
 		//Print list
-		case 'L':
-		case 'l':
-			Serv.PrintList_Task();
+		case '5':
+			printer.print_List_Task(data.temp_Task);
+			break;
+
+		//Sort list
+		case '6':
+			sorter.sort_Task(data.temp_Task);
+			break;
+
+		//Save in file
+		case '7':
+			printer.print_file_Task(data.temp_Task);
 			break;
 
 		case 'Q':
@@ -217,6 +186,10 @@ int Menu::subMenu_Task()
 
 	return 0;
 }
+
+
+
+
 
 
 int Menu::subMenu_Employee()
@@ -227,9 +200,9 @@ int Menu::subMenu_Employee()
 
 	while (LOOP)
 	{
-		PrintString(Text_FunctionMenu("Employee"));
+		print(Text_SubMenu("Employee"));
 
-		controller = GetController();
+		controller = input_char();
 
 		system("cls");
 
@@ -237,33 +210,39 @@ int Menu::subMenu_Employee()
 		switch (controller)
 		{
 		//create
-		case 'C':
-		case 'c':
-		Serv.add_Employee();
+		case '1':
+			filler.fill_Employee(data.temp_Employee);
 			break;
 
 		//Delete 
-		case 'D':
-		case 'd':
-			delMenu_Employee();
+		case '2':
+			deleter.del_Employee(data.temp_Employee);
 			break;
 
 		//Edit
-		case 'E':
-		case 'e':
-			//editMenu_Employee();
+		case '3':
+			editer.edit_Employee(data.temp_Employee);
 			break;
 
 		//Print
-		case 'P':
-		case 'p':
-			printMenu_Employee();
+		case '4':
+			printer.print_select_Employee(data.temp_Employee);
 			break;
 
 		//Print list
-		case 'L':
-		case 'l':
-			Serv.PrintList_Employee();
+		case '5':
+			printer.print_List_Employee(data.temp_Employee);
+			break;
+
+		//Sort list
+		case '6':
+			sorter.sort_Employee(data.temp_Employee);
+			break;
+
+
+		//Save in file
+		case '7':
+			printer.print_file_Employee(data.temp_Employee);
 			break;
 
 		case 'Q':
@@ -276,11 +255,10 @@ int Menu::subMenu_Employee()
 			break;
 		}
 
-
 	}
-
 	return 0;
 }
+
 
 
 int Menu::subMenu_Participation()
@@ -291,9 +269,9 @@ int Menu::subMenu_Participation()
 
 	while (LOOP)
 	{
-		PrintString(Text_FunctionMenu("Particcipation"));
+		print(Text_SubMenu("Particcipation"));
 
-		controller = GetController();
+		controller = input_char();
 
 		system("cls");
 
@@ -301,33 +279,39 @@ int Menu::subMenu_Participation()
 		switch (controller)
 		{
 		//create
-		case 'C':
-		case 'c':
-			Serv.add_Participation();
+		case '1':
+			filler.fill_Participation(data.temp_Participation);
 			break;
 
 		//Delete 
-		case 'D':
-		case 'd':
-			delMenu_Participation();
+		case '2':
+			deleter.del_Participation(data.temp_Participation);
 			break;
 
 		//Edit
-		case 'E':
-		case 'e':
-			//editMenu_Participation();
+		case '3':
+			editer.edit_Participation(data.temp_Participation);
 			break;
 
 		//Print
-		case 'P':
-		case 'p':
-			printMenu_Participation();
+		case '4':
+			printer.print_select_Participation(data.temp_Participation);
 			break;
 
 		//Print list
-		case 'L':
-		case 'l':
-			Serv.PrintList_Participation();
+		case '5':
+			printer.print_List_Participation(data.temp_Participation);
+			break;
+
+		//Sort list
+		case '6':
+			sorter.sort_Participation(data.temp_Participation);
+			break;
+
+
+		//Save in file
+		case '7':
+			printer.print_file_Participation(data.temp_Participation);
 			break;
 
 		case 'Q':
@@ -340,367 +324,11 @@ int Menu::subMenu_Participation()
 			break;
 		}
 
-
 	}
-
 	return 0;
 }
 
 
 
 
-///
-///		DELETE MENU
-///
-//int Menu::delMenu_Task() {
-//	PrintString("Input id:");
-//
-//	int id = GetInt();
-//
-//	PrintString(del_Task(Temp, id));
-//
-//	return 0;
-//}
-//
-//
-//int Menu::delMenu_Employee() {
-//	PrintString("Input id:");
-//
-//	int id = GetInt();
-//
-//	PrintString(del_Employee(Temp, id));
-//
-//	return 0;
-//}
-//
-//
-//int Menu::delMenu_Participation() {
-//	PrintString("Input id Task:");
-//
-//	int idT = GetInt();
-//
-//	PrintString("Input id Employee:");
-//
-//	int idE = GetInt();
-//
-//	PrintString(del_Participation(Temp, idT, idE));
-//
-//	return 0;
-//}
 
-
-
-
-///
-///		PRINT MENU
-///
-int Menu::printMenu_Task() {
-	PrintString("Input id:");
-
-	int id = GetInt();
-
-	PrintString(Serv.Print_Task_ID(id));
-
-	return 0;
-}
-
-
-int Menu::printMenu_Employee() {
-	PrintString("Input id:");
-
-	int id = GetInt();
-
-	PrintString(Serv.Print_Employee_ID(id));
-
-	return 0;
-}
-
-
-int Menu::printMenu_Participation() {
-	PrintString("Input id Task:");
-
-	int idT = GetInt();
-
-	PrintString("Input id Employee:");
-
-	int idE = GetInt();
-
-	PrintString(Serv.Print_Participation_ID(idT, idE));
-
-	return 0;
-}
-
-
-
-
-/////
-/////		EDIT MENU
-/////
-//int Menu::editMenu_Task() {
-//	vector<Task>& vec = Temp.TaskVec;
-//	
-//	Task a;								// ¿ Aﬂ-“Œ ’–≈Õ‹
-//	Task* task = &a;
-//
-//	PrintString("Input ID:\n");
-//	int id = GetInt();
-//
-//	bool LOOP = 1;
-//	char controller = 'q';
-//	while (LOOP)
-//	{
-//		system("cls");
-//
-//		bool check = 1;
-//		for (int i = 0; i < vec.size(); i++) {
-//			if (vec[i].get_IDTask() == id) {
-//				check = 0;
-//				task = &vec[i];
-//			}
-//		}
-//		if (check) {
-//			PrintString("Element with this id not founded");
-//			LOOP = 0;
-//			break;
-//		}
-//
-//
-//
-//		PrintString(task->print());
-//		PrintString(Text_EditTaskMenu());
-//		
-//		controller = GetController();
-//		
-//		
-//
-//		switch (controller)
-//		{
-//		case 'T':// Edit Task
-//		case 't':
-//			PrintString("Input task:\n");
-//			task->set_task(GetString());
-//			break;
-//			
-//		case 'D':// Edit Description
-//		case 'd':
-//			PrintString("Input descriptoin:\n");
-//			task->set_taskDescrption(GetString());
-//			break;
-//			
-//		case 'L':// Edit Deth-Line
-//		case 'l':
-//			PrintString("Input deth-line:\n");
-//			task->set_dethLine(GetString());
-//			break;
-//			
-//		case 'S':// Set Element
-//		case 's':
-//			PrintString("Input ID:\n");
-//			id = GetInt();
-//			break;
-//			
-//			
-//		case 'Q':
-//		case 'q':
-//			LOOP = 0;
-//			break;
-//			
-//		default:
-//			cout << "ERROR" << endl;
-//			break;
-//		}
-//
-//	}
-//	
-//	return 0;
-//}
-//
-//
-//int Menu::editMenu_Employee() {
-//	vector<Employee>& vec = Temp.EmployeeVec;
-//
-//	Employee a;								// ¿ Aﬂ-“Œ ’–≈Õ‹
-//	Employee* employee = &a;
-//
-//	PrintString("Input ID:\n");
-//	int id = GetInt();
-//
-//	bool LOOP = 1;
-//	char controller = 'q';
-//	while (LOOP)
-//	{
-//		system("cls");
-//
-//		bool check = 1;
-//		for (int i = 0; i < vec.size(); i++) {
-//			if (vec[i].get_IDEmployee() == id) {
-//				check = 0;
-//				employee = &vec[i];
-//			}
-//		}
-//		if (check) {
-//			PrintString("Element with this id not founded");
-//			LOOP = 0;
-//			break;
-//		}
-//
-//
-//
-//		PrintString(employee->print());
-//		PrintString(Text_EditEmployeeMenu());
-//
-//		controller = GetController();
-//
-//
-//
-//		switch (controller)
-//		{
-//		case 'N':// Edit Name
-//		case 'n':
-//			PrintString("Input name:\n");
-//			employee->set_nameEmployee(GetString());
-//			break;
-//
-//		case 'P':// Edit Phone
-//		case 'p':
-//			PrintString("Input phone number:\n");
-//			employee->set_phoneNumber(GetString());
-//			break;
-//
-//		case 'A':// Edit Deth-Line
-//		case 'a':
-//			PrintString("Input passport data:\n");
-//			employee->set_passportData(GetString());
-//			break;
-//
-//		case 'D':// Edit Deth-Line
-//		case 'd':
-//			PrintString("Input department:\n");
-//			employee->set_department(GetString());
-//			break;
-//
-//		case 'J':// Edit Deth-Line
-//		case 'j':
-//			PrintString("Input job title:\n");
-//			employee->set_jobTitle(GetString());
-//			break;
-//
-//		case 'S':// Set Element
-//		case 's':
-//			PrintString("Input ID:\n");
-//			id = GetInt();
-//			break;
-//
-//
-//		case 'Q':
-//		case 'q':
-//			LOOP = 0;
-//			break;
-//
-//		default:
-//			cout << "ERROR" << endl;
-//			break;
-//		}
-//
-//	}
-//
-//	return 0;
-//}
-//
-//
-//int Menu::editMenu_Participation() {
-//	vector<Participation>& vec = Temp.ParticipationVec;
-//
-//	Participation a;								// ¿ Aﬂ-“Œ ’–≈Õ‹
-//	Participation* participation = &a;
-//
-//
-//	PrintString("Input ID Task:\n");
-//	int idT = GetInt();
-//
-//	PrintString("Input ID Employee:\n");
-//	int idE = GetInt();
-//
-//
-//	bool LOOP = 1;
-//	char controller = 'q';
-//	while (LOOP)
-//	{
-//		system("cls");
-//
-//		bool check = 1;
-//		for (int i = 0; i < vec.size(); i++) {
-//			if (vec[i].get_IDTask() == idT && vec[i].get_IDEmployee() == idE) {
-//				check = 0;
-//				participation = &vec[i];
-//				break;
-//			}
-//		}
-//		if (check) {
-//			PrintString("Element with this id not founded");
-//			LOOP = 0;
-//			break;
-//		}
-//
-//
-//
-//		PrintString(participation->print());
-//		PrintString(Text_EditParticipationMenu());
-//
-//		controller = GetController();
-//
-//
-//
-//		switch (controller)
-//		{
-//		case 'T':// Edit Name
-//		case 't':
-//			PrintString("Input ID Task:\n");
-//			idT = GetInt();
-//			participation->set_IDTask(idT);
-//			break;
-//
-//		case 'E':// Edit Phone
-//		case 'e':
-//			PrintString("Input ID Employee:\n");
-//			idE = GetInt();
-//			participation->set_IDEmployee(idE);
-//			break;
-//
-//		case 'A':// Edit Deth-Line
-//		case 'a':
-//			PrintString("Input status:\n");
-//			participation->set_assignmentStatus(GetString());
-//			break;
-//
-//		case 'D':// Edit Deth-Line
-//		case 'd':
-//			PrintString("Input description:\n");
-//			participation->set_shortDescription(GetString());
-//			break;
-//
-//
-//		case 'S':// Set Element
-//		case 's':
-//			PrintString("Input ID Task:\n");
-//			idT = GetInt();
-//
-//			PrintString("Input ID Employee:\n");
-//			idE = GetInt();
-//			break;
-//
-//
-//		case 'Q':
-//		case 'q':
-//			LOOP = 0;
-//			break;
-//
-//		default:
-//			cout << "ERROR" << endl;
-//			break;
-//		}
-//
-//	}
-//
-//	return 0;
-//}
